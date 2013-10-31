@@ -8,10 +8,11 @@ BUTTON_CHAR=${BUTTON_CHAR:-"a"}
 # TODO: fill in the necessary command.
 
 echo "Waiting for input.."
-while [[ /bin/true ]]; do
+while [[ 1 ]]; do
   read -n 1 char_read
-  if [ $char_read == $BUTTON_CHAR ]; then
+  if [[ $char_read == $BUTTON_CHAR ]]; then
     echo "Taking photo."
     gphoto2 --capture-image-and-download --hook-script ./uploadhook.sh
+    echo "done."
   fi
 done
