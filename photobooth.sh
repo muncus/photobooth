@@ -17,7 +17,8 @@ while [[ 1 ]]; do
 
     # now reset the device, because the rpi's usb stack is a turd.
     echo "resetting device."
-    buspath=`lsusb  | cut -f 2,4 -d\  --output-delimiter '/' | cut -f 1 -d :`
+    buspath=`lsusb | grep -i canon | cut -f 2,4 -d\  --output-delimiter '/' | cut -f 1 -d :`
+    echo $buspath
     ./usbreset /dev/bus/usb/$buspath
     echo "done."
   fi
